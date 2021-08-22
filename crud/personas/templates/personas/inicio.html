@@ -1,0 +1,49 @@
+{% load static %}
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>index</title>
+    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
+  </head>
+  <body>
+
+    <div class="container">
+
+        <a href="crear_persona" class="btn btn-outline-dark mt-5">Crear Nuevo</a>
+
+        <table class="table table-bordered table-info mt-5 text-center">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Telefono</th>
+            <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Persona in personass %}
+                <tr>
+                    <th>{{ Persona.id }}</th>
+                    <td>{{ Persona.name }}</td>
+                    <td>{{ Persona.cedula }}</td>
+                    <td>{{ Persona.telefono }}</td>
+                    <td>
+                        <a href="detail_persona_{{ Persona.id }}" class="btn btn-danger">Ver mas</a>
+                        <a href="actualizar_persona_{{ Persona.id }}" class="btn btn-success">Editar</a>
+                        <a href="borrar_persona_{{ Persona.id }}" class="btn btn-primary">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+    </div>
+
+
+  </body>
+</html>
